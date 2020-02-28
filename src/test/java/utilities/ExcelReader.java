@@ -47,7 +47,7 @@ public class ExcelReader {
 	}
 	
 	
-	// returns the row count in a sheet
+	
 	public int getRowCount(String sheetName){
 		int index = workbook.getSheetIndex(sheetName);
 		if(index==-1)
@@ -62,7 +62,7 @@ public class ExcelReader {
 	
 	
 	
-	// returns the data from a cell
+	
 	public String getCellData(String sheetName,String colName,int rowNum){
 		try{
 			if(rowNum <=0)
@@ -76,7 +76,7 @@ public class ExcelReader {
 		sheet = workbook.getSheetAt(index);
 		row=sheet.getRow(0);
 		for(int i=0;i<row.getLastCellNum();i++){
-			//System.out.println(row.getCell(i).getStringCellValue().trim());
+			
 			if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 				col_Num=i;
 		}
@@ -131,7 +131,7 @@ public class ExcelReader {
 	
 	
 	
-	// returns the data from a cell
+	
 	public String getCellData(String sheetName,int colNum,int rowNum){
 		try{
 			if(rowNum <=0)
@@ -157,7 +157,7 @@ public class ExcelReader {
 		  
 		  String cellText  = String.valueOf(cell.getNumericCellValue());
 		  if (HSSFDateUtil.isCellDateFormatted(cell)) {
-	           // format in form of M/D/YY
+	         
 			  double d = cell.getNumericCellValue();
 
 			  Calendar cal =Calendar.getInstance();
@@ -190,7 +190,7 @@ public class ExcelReader {
 	
 	
 	
-	// returns true if data is set successfully else false
+	
 	public boolean setCellData(String sheetName,String colName,int rowNum, String data){
 		try{
 		fis = new FileInputStream(path); 
@@ -210,7 +210,7 @@ public class ExcelReader {
 
 		row=sheet.getRow(0);
 		for(int i=0;i<row.getLastCellNum();i++){
-			//System.out.println(row.getCell(i).getStringCellValue().trim());
+			
 			if(row.getCell(i).getStringCellValue().trim().equals(colName))
 				colNum=i;
 		}
@@ -245,7 +245,7 @@ public class ExcelReader {
 	
 	
 	
-	// returns true if data is set successfully else false
+	
 	public boolean setCellData(String sheetName,String colName,int rowNum, String data,String url){
 		
 		try{
@@ -284,14 +284,14 @@ public class ExcelReader {
 	    cell.setCellValue(data);
 	    XSSFCreationHelper createHelper = workbook.getCreationHelper();
 
-	    //cell style for hyperlinks
+	   
 	    
 	    CellStyle hlink_style = workbook.createCellStyle();
 	    XSSFFont hlink_font = workbook.createFont();
 	    hlink_font.setUnderline(XSSFFont.U_SINGLE);
 	    hlink_font.setColor(IndexedColors.BLUE.getIndex());
 	    hlink_style.setFont(hlink_font);
-	    //hlink_style.setWrapText(true);
+	   
 
 	    XSSFHyperlink link = createHelper.createHyperlink(HyperlinkType.FILE);
 	    link.setAddress(url);
@@ -313,7 +313,7 @@ public class ExcelReader {
 	
 	
 	
-	// returns true if sheet is created successfully else false
+	
 	public boolean addSheet(String  sheetname){		
 		
 		FileOutputStream fileOut;
@@ -329,7 +329,7 @@ public class ExcelReader {
 		return true;
 	}
 	
-	// returns true if sheet is removed successfully else false if sheet does not exist
+	
 	public boolean removeSheet(String sheetName){		
 		int index = workbook.getSheetIndex(sheetName);
 		if(index==-1)
@@ -347,7 +347,7 @@ public class ExcelReader {
 		}
 		return true;
 	}
-	// returns true if column is created successfully
+	
 	public boolean addColumn(String sheetName,String colName){
 		
 		
@@ -393,7 +393,7 @@ public class ExcelReader {
 	
 	
 	
-	// removes a column and all the contents
+	
 	public boolean removeColumn(String sheetName, int colNum) {
 		try{
 		if(!isSheetExist(sheetName))
@@ -403,7 +403,7 @@ public class ExcelReader {
 		sheet=workbook.getSheet(sheetName);
 		XSSFCellStyle style = workbook.createCellStyle();
 		style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_40_PERCENT.getIndex());
-		//XSSFCreationHelper createHelper = workbook.getCreationHelper();
+		
 		style.setFillPattern(FillPatternType.NO_FILL);
 		
 	    
@@ -431,7 +431,7 @@ public class ExcelReader {
 	}
 	
 	
-  // find whether sheets exists	
+  	
 	public boolean isSheetExist(String sheetName){
 		int index = workbook.getSheetIndex(sheetName);
 		if(index==-1){
@@ -446,9 +446,9 @@ public class ExcelReader {
 	}
 	
 	
-	// returns number of columns in a sheet	
+	
 	public int getColumnCount(String sheetName){
-		// check if sheet exists
+		
 		if(!isSheetExist(sheetName))
 		 return -1;
 		
@@ -465,7 +465,7 @@ public class ExcelReader {
 	}
 	
 	
-	//String sheetName, String testCaseName,String keyword ,String URL,String message
+	
 	public boolean addHyperLink(String sheetName,String screenShotColName,String testCaseName,int index,String url,String message){
 		
 		

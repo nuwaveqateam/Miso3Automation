@@ -73,7 +73,7 @@ public class Base {
 			options.addArguments("--incognito");
 			options.addArguments("--disable-popup-blocking");
 			options.addArguments("--disable-infobar");
-			//options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+			
 			cap.setCapability(ChromeOptions.CAPABILITY, options);
 
 			System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "D:\\chrome.log");

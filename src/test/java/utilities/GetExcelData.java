@@ -6,15 +6,6 @@ public class GetExcelData extends Base {
 	
 	public static String fileName;
 
-	/*public static void captureScreenshot() throws IOException {
-
-		Date d = new Date();
-		fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
-
-		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File(".\\target\\surefire-reports\\html\\" + fileName));
-
-	}*/
 	
 	
 	public static Object[][] getData(String sheetName) {
